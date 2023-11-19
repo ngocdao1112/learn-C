@@ -19,8 +19,9 @@ class YouTubeChannel { // định nghĩa class YouTubeChannel
         list<string> PublishedVideoTitles;
 
     //2. Constructor cho class YouTubeChannel
+    // Constructor đc sd để khởi tạo các attributes của object YouTubeChannel khi nó được tạo ra.
     YouTubeChannel(string name, string owerName) { //truyền 2 tham số cho constructor
-        //gán các giá trị ban đầu cho các attributes
+        //gán các giá trị cho các attributes
         Name = name;
         OwerName = owerName;
         SubscribersCount = 0;
