@@ -1,6 +1,7 @@
 // #include <iostream>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 //change value #1
     // int main() {
@@ -375,14 +376,37 @@
     //     int z = Add(&a, &b); // a and b are integers local to Main
     //     printf("Sum = %d\n", z); // 6
     // }
-
 int* Add(int* a, int* b) { //called function - returns pointer to integer
-    int c = (*a) + (*b);
-    return &c;
+    int* c = (int*)malloc(sizeof(int));
+    *c = (*a + *b);
+    return c;
 }
 int main() { //calling function
     int a = 2, b = 4;
     int* ptr = Add(&a, &b); // a and b are integers local to Main
     printf("Sum = %d\n", *ptr); 
-
 }
+
+int* Add(int* a, int* b) { //called function - returns pointer to integer
+    int c = (*a) + (*b);
+    return c;
+}
+int main() { //calling function
+    int a = 2, b = 4;
+    int* ptr = Add(&a, &b); // a and b are integers local to Main
+    printf("Sum = %d\n", *ptr); 
+}
+// void PrintHelloWorld() {
+//     printf("Hello World\n");
+// }
+// int* Add(int* a, int* b) { //called function - returns pointer to integer
+//     int c = (*a) + (*b);
+//     return &c;
+// }
+// int main() { //calling function
+//     int a = 2, b = 4;
+//     int* ptr = Add(&a, &b); // a and b are integers local to Main
+//     PrintHelloWorld();
+//     printf("Sum = %d\n", *ptr); 
+
+// }
