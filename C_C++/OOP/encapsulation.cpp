@@ -41,7 +41,7 @@ class YouTubeChannel { // định nghĩa class YouTubeChannel
         }
     }
     void PublishVideo(string title) {
-        PublishedVideoTitles.push_back(title);
+        PublishedVideoTitles.push_back(title); //push_back để thêm các title của video vào list
     }
 };
 
