@@ -2,6 +2,12 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <time.h>
+
+/*
+    Pointer - variable that store address of another variable
+
+*/
 
 //change value #1
     // int main() {
@@ -376,26 +382,27 @@
     //     int z = Add(&a, &b); // a and b are integers local to Main
     //     printf("Sum = %d\n", z); // 6
     // }
-int* Add(int* a, int* b) { //called function - returns pointer to integer
-    int* c = (int*)malloc(sizeof(int));
-    *c = (*a + *b);
-    return c;
-}
-int main() { //calling function
-    int a = 2, b = 4;
-    int* ptr = Add(&a, &b); // a and b are integers local to Main
-    printf("Sum = %d\n", *ptr); 
-}
+// int* Add(int* a, int* b) { //called function - returns pointer to integer
+//     int* c = (int*)malloc(sizeof(int));
+//     *c = (*a + *b);
+//     return c;
+// }
+// int main() { //calling function
+//     int a = 2, b = 4;
+//     int* ptr = Add(&a, &b); // a and b are integers local to Main
+//     printf("Sum = %d\n", *ptr); 
+// }
 
-int* Add(int* a, int* b) { //called function - returns pointer to integer
-    int c = (*a) + (*b);
-    return c;
-}
-int main() { //calling function
-    int a = 2, b = 4;
-    int* ptr = Add(&a, &b); // a and b are integers local to Main
-    printf("Sum = %d\n", *ptr); 
-}
+// int* Add(int* a, int* b) { //called function - returns pointer to integer
+//     int c = (*a) + (*b);
+//     return c;
+// }
+// int main() { //calling function
+//     int a = 2, b = 4;
+//     int* ptr = Add(&a, &b); // a and b are integers local to Main
+//     printf("Sum = %d\n", *ptr); 
+// }
+
 // void PrintHelloWorld() {
 //     printf("Hello World\n");
 // }
@@ -410,3 +417,207 @@ int main() { //calling function
 //     printf("Sum = %d\n", *ptr); 
 
 // }
+//Function pointer
+    // int Add(int a, int b) {
+    //     return a+b;
+    // }
+    //     // int *Func(int, int); //declaring a function pointer
+    //     // // đây là khai báo 1 hàm sẽ trả về 1 con trỏ tới int 
+    // int main() {
+    //     int c;
+    //     int (*p)(int, int);
+    //     // void (*p)(int, int); //error because kiểu trả về của hàm Add là int
+    //     p = Add; // function name will return us pointer (tên hàm trả về địa chỉ của hàm)
+    //     // p = &Add;  
+    //     c = p(2, 3); //de-referencing and executing the function // or c = (*p)(2, 3);
+    //     printf("%d", c);
+    // }
+
+    // void PrintHello() {
+    //     printf("Hello\n");
+    // }
+    // int Add(int a, int b) {
+    //     return a+b;
+    // }
+    // int main() {
+    //     void (*ptr)();
+    //     ptr = PrintHello; //gán địa chỉ của PrintHello ptr
+    //     ptr(); // gọi hàm PrintHello
+    // }
+
+    // void PrintHello(char* name) {
+    //     printf("Hello %s\n", name);
+    // }
+    // int Add(int a, int b) {
+    //     return a+b;
+    // }
+    // int main() {
+    //     void (*ptr)(char*);
+    //     ptr = PrintHello; //gán địa chỉ của PrintHello ptr
+    //     ptr("Tom"); // gọi hàm PrintHello
+    // }
+//Function pointers and Callbacks
+//can be passed as arguments to functions
+//callback
+    // void A() {
+    //     printf("Hello\n");
+    // }
+    // void B(void (*ptr)()) { // function pointer as argument
+    //                         //hàm này lấy 1 con trỏ hàm làm đối số mà ptr sẽ trỏ tới 1 hàm k có đối số và sẽ trả về khoảng trống của hàm như a
+    //     ptr();  //sd con trỏ hàm ptr này để gọi bất kỳ hàm nào mà nó trỏ tới
+    //             // nói cách khác là gọi lại chức năng đc truyền cho tôi hoặc được cung cấp cho tôi thông qua ptr
+    //             //call-back function that "ptr" points to 
+    // }
+    // int main() {
+    //     void (*p)() = A;  // trỏ tới một hàm ko có đối số (void) và trả về void.
+    //     B(p);
+    //     printf("%d\n", &A); //address the same of p
+    //     printf("%d", p); // address the same of A
+    //     //or
+    //     B(A); //A is callback function
+    // }
+//BUBBLE SORT
+    // void BubbleSort(int *A, int n) {
+    //     //simple bubble sort
+    //     int temp;
+    //     for(int i=0; i<n; i++) {
+    //         for (int j=0; j<n-1; j++) {
+    //             // if(A[j] > A[j+1]) //6 5 4 3 2 1 
+    //             if(A[j] > A[j+1]) { //compare A[j] with A[j+1] and SWAP if needed, 1 2 3 4 5 6
+    //                 temp = A[j];
+    //                 A[j] = A[j+1];
+    //                 A[j+1] = temp;
+    //             }
+    //         }
+    //     }
+    // }
+    // int main() {
+    //     int A[] = {3,2,1,5,6,4}; // sort in increasing order => {1,2,3,4,5,6}
+    //     BubbleSort(A,6);
+    //     for(int i=0; i<6; i++) {
+    //         printf("%d ", A[i]);
+    //     }
+    // }
+/*
+callback function should compare two integers, should return 1 if first element has higher rank, 
+0 if elements are equal and -1 if second element has higher rank
+*/
+    // int compare(int a, int b) {
+    //     if(a>b)
+    //         // return 1; // 1 2 3 4 5 6
+    //         return -1;
+    //     else
+    //         // return -1; //6 5 4 3 2 1 
+    //         return 1;
+    // }
+    // void BubbleSort(int *A, int n, int (*compare)(int, int)) {
+    //     //simple bubble sort
+    //     int temp;
+    //     for(int i=0; i<n; i++) {
+    //         for (int j=0; j<n-1; j++) {
+    //             if(compare(A[j], A[j+1]) > 0) { //compare A[j] with A[j+1] and SWAP if needed
+    //                 temp = A[j];
+    //                 A[j] = A[j+1];
+    //                 A[j+1] = temp;
+    //             }
+    //         }
+    //     }
+    // }
+    // int main() {
+    //     int A[] = {3,2,1,5,6,4}; // sort in increasing/decreasing order
+    //     BubbleSort(A, 6, compare);
+    //     for(int i=0; i<6; i++) {
+    //         printf("%d ", A[i]);
+    //     }
+    // }
+
+    // int absolute_compare(int a, int b) {
+    //     if(abs(a) > abs(b))
+    //         return 1;
+    //     return -1;
+    // }
+    // void BubbleSort(int *A, int n, int (*compare)(int, int)) {
+    //     //simple bubble sort
+    //     int temp;
+    //     for(int i=0; i<n; i++) {
+    //         for (int j=0; j<n-1; j++) {
+    //             if(compare(A[j], A[j+1]) > 0) { //compare A[j] with A[j+1] and SWAP if needed
+    //                 temp = A[j];
+    //                 A[j] = A[j+1];
+    //                 A[j+1] = temp;
+    //             }
+    //         }
+    //     }
+    // }
+    // int main() {
+    //     int A[] = {-31, 22, -1, 50, -6, 4}; // => {-1, 4, -6, 22, -31, 50}
+    //     BubbleSort(A, 6, absolute_compare);
+    //     for(int i=0; i<6; i++) {
+    //         printf("%d ", A[i]);
+    //     }
+    // }
+
+    // int compare(const void *a, const void *b) { //Hàm compare nhận vào hai con trỏ void, đại diện cho hai phần tử cần so sánh trong mảng A.
+    //     int A = *((int*)a); // typecasting to int* and getting value
+    //     int B = *((int*)b);
+    //     // return A-B; // -31 -6 -1 4 22 50
+    //     // return B-A; //50 22 4 -1 -6 -31
+    //     return abs(A) - abs(B); // -1 4 -6 22 -31 50
+    // }
+    // int main() {
+    //     int i, A[] = {-31, 22, -1, 50, -6, 4}; //=> {-1, 4, -6, 22, -31, 50}
+    //     qsort(A, 6, sizeof(int), compare);
+    //     /*  Tham số thứ nhất là mảng cần sắp xếp.
+    //         Tham số thứ hai là số lượng phần tử trong mảng.
+    //         Tham số thứ ba là kích thước của mỗi phần tử (ở đây là sizeof(int)).
+    //         Tham số thứ tư là con trỏ đến hàm so sánh, ở đây là compare.
+    //     */
+    //     for(i=0; i<6; i++) {
+    //         printf("%d ", A[i]); 
+    //     }
+    // }
+
+    //WHAT IS MEMORY LEAK
+    /*
+        - nói về tình huống xảy ra do việc sd bộ nhớ k đúng cách or bộ nhớ trên heap và tình huống này là rò rỉ bộ nhớ
+        - simple betting game
+        - "Jack, Queen, King" - computer shuffles these cards
+        - if he wins, he takes 3*bet
+        - if he looses. he tooks the bet amount
+        - player has $100 initially
+    */
+    int cash = 100;
+    void Play(int bet) {
+        char C[3] = {'J', 'Q', 'K'};
+        printf("Shuffling ...\n");
+        srand(time(NULL)); //seeding random number generator
+        for(int i=0; i<5; i++) {
+            int x = rand() % 3;
+            int y = rand() % 3;
+            int temp = C[x];
+            C[x] = C[y];
+            C[y] = temp; // swaps characters at position x and y
+        }
+        int playersGuess;
+        printf("What's the position of queen - 1, 2 or 3? ");
+        scanf("%d", &playersGuess);
+        if(C[playersGuess - 1] == 'Q') {
+            cash += 3*bet;
+            printf("You win! Result = \"%c %c %c\" Total Cash = %d\n", C[0], C[1], C[2], cash);
+        } 
+        else {
+            cash -= bet;
+            printf("You Loose! Result = \"%c %c %c\" Total Cash = %d\n", C[0], C[1], C[2], cash);
+        }
+    }
+    int main() {
+        int bet;
+        while (cash > 0) {
+            printf("What's your bet? $");
+            scanf("%d", &bet);
+            if(bet == 0 || bet > cash)
+                break;
+            Play(bet);
+            printf("\n**********************************************\n");
+        }
+    }
