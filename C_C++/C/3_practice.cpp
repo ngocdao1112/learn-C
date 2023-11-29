@@ -1,85 +1,17 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <iostream>
 using namespace std;
-// This stores the total number of books in each shelf.
-// lưu tổng số sách trên mỗi kệ
-// int* books;
-
-// // This stores the total number of pages in each book of each shelf.
-// // lưu tổng số trang của mỗi sách của mỗi kệ
-// // The rows represent the shelves and the columns represent the books.
-// // row đại diện cho kệ, column thì đại diện cho sách
-// int** pages;
-
-// int main()
-// {
-//     int shelves;
-//     scanf("%d", &shelves);
-    
-//     int queries;
-//     scanf("%d", &queries);
-    
-//     while (queries--) {
-//         int query;
-//         scanf("%d", &query);
-        
-//         if (query == 1) {
-//             books = (int*)malloc(shelves* sizeof(int)); //5 - shelves
-            
-//             int x, y;
-//             scanf("%d %d", &x, &y);
-
-//         } else if (query == 2) {
-//             int x, y;
-//             scanf("%d %d", &x, &y);
-//             printf("%d\n", *(*(pages + x) + y));
-//         } else {
-//             int x;
-//             scanf("%d", &x);
-//             printf("%d\n", *(books + x));
-//         }
-//     }
-
-//     // if (total_number_of_books) {
-//     //     free(total_number_of_books);
-//     // }
-    
-//     // for (int i = 0; i < total_number_of_shelves; i++) {
-//     //     if (*(total_number_of_pages + i)) {
-//     //         free(*(total_number_of_pages + i));
-//     //     }
-//     // }
-    
-//     // if (total_number_of_pages) {
-//     //     free(total_number_of_pages);
-//     // }
-    
-//     return 0;
-// }
-
-#include <iostream>
-using namespace std; 
-int main() 
-{ 
- //1. ép kiểu rộng 
-    int a = 10; 
-    //kiểm tra kiểu dữ liệu của a
-    cout << "kieu du lieu cua a: "<< typeid(a).name()<<endl; 
-    //xuất giá trị a 
-    cout << "a= " << a << endl;
-    //khai báo biến b, ép kiểu a sang int 
-    float b = (float)a; // ép tường minh
-    //float b = a; // C++ cho phép ép tắt
-    
-    //kiểm tra kiểu dữ liệu của b
-    cout << "kieu du lieu cua b: " << typeid(b).name()<<endl;
-    //xuất giá trị b
-    cout << "b= " << b << endl;
-
- //2. ép kiểu hẹp
-    float soA = 1.25;
-    int soB = 1.25;
-    cout << "SoA= " << soA << endl;
-    cout << "SoB= " << soB << endl;
-} 
+//Using Pointers to Print 2D Arrays
+//traditionally:
+   // for(int i=0; i<row; i++) {
+   //    for(int j=0; j<col; j++) {
+   //       printf("%d", a[i][j]);
+   //    }
+   // }
+//using pointers
+   //  for(p = &a[0][0]; p <= &a[row-1][col-1]; p++) {
+   //                      //&a[1][1]
+   //      printf("%d ", *p);
+   //      //output: 1         2       3           4
+   //      //       a[0][0]  a[0][1]   a[1][0]    a[1][1]
+   //  }

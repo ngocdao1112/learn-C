@@ -273,39 +273,39 @@ int main() {
 
 //c_passing_pointers_to_functions
 //c_return_pointer_from_functions
-int *findMid(int a[], int n);
-int main() {
-    int a[] = {1, 2, 3, 4, 5};
-    int n = sizeof(a)/sizeof(a[0]);
-    int *mid = findMid(a, n);
-    printf("%d", *mid);
-    
-    return 0; // output: 3
-}
-int *findMid(int a[], int n) {
-    return &a[n/2];
-}
+    int *findMid(int a[], int n);
+    int main() {
+        int a[] = {1, 2, 3, 4, 5};
+        int n = sizeof(a)/sizeof(a[0]);
+        int *mid = findMid(a, n);
+        printf("%d", *mid);
+        
+        return 0; // output: 3
+    }
+    int *findMid(int a[], int n) {
+        return &a[n/2];
+    }
 //automatic variable
-int *fun() {
-    int i = 10;
-    return &i;
-}
-int main() {
-    int *p = fun();
-    printf("%d", *p); // warning: function returns address of local variable
-}
+    int *fun() {
+        int i = 10;
+        return &i;
+    }
+    int main() {
+        int *p = fun();
+        printf("%d", *p); // warning: function returns address of local variable
+    }
 
 //VD1: 
-int *p = &i;
-p = &i;
-//VD3: how to print the address of a variable?
-int main() {
-    int i = 10;
     int *p = &i;
-    printf("Addess of variable i is %p", p);
-    //variable i is 0x6fff....
-    return 0;
-}
+    p = &i;
+//VD3: how to print the address of a variable?
+    int main() {
+        int i = 10;
+        int *p = &i;
+        printf("Addess of variable i is %p", p);
+        //variable i is 0x6fff....
+        return 0;
+    }
 //VD4: if i is a variable and p points to i, aliases of i?
 Ex:
     int i = 10; // giá trị i = 10; address i = 1000; 
@@ -391,28 +391,22 @@ int main() {
 }
 
 //Passing Array as an Argument to a Function
-int add(int b[], int len) {
-    int sum = 0, i;
-    for(i=0; i<len; i++) {
-        sum += b[i];
+    int add(int b[], int len) {
+        int sum = 0, i;
+        for(i=0; i<len; i++) {
+            sum += b[i];
+        }
+        return sum;
     }
-    return sum;
-}
 
-int main() {
-    int a[] = {1, 2, 3, 4};
-    int len = sizeof(a)/sizeof(a[0]);
-    printf("%d", add(a, len));
-    
-    return 0;
-}
-//Using Pointers to Print 2D Arrays
-for(p = &a[0][0]; p <= &a[row-1][col-1]; p++) {
-                    //&a[1][1]
-    printf("%d ", *p);
-    //output: 1         2       3           4
-    //       a[0][0]  a[0][1]   a[1][0]    a[1][1]
-}
+    int main() {
+        int a[] = {1, 2, 3, 4};
+        int len = sizeof(a)/sizeof(a[0]);
+        printf("%d", add(a, len));
+        
+        return 0;
+    }
+
 
 //Pointers (Program 5):
 //What is the output of the follow C:
