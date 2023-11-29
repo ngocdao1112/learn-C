@@ -1,9 +1,10 @@
 #include <iostream>
 using namespace std;
 class AbstracEmployee {
-    virtual void AskForPromotion() {
-            cout << " got promoted!" << endl;
-    }
+    virtual void AskForPromotion() = 0;
+    // virtual void AskForPromotion() {
+    //         cout << " got promoted!" << endl;
+    // }
 };
 class Employee:AbstracEmployee {
 private: //encapsulation để bảo mật data
@@ -42,15 +43,12 @@ public:
         Company = company;
         Age = age;
     }
-    // void AskForPromotion() {
-    //     if(Age > 30)
-    //         cout << Name << " got promoted!" << endl;
-    //     else
-    //         cout << Name << ", sorry NO promotion for you!" << endl;
-    // }
-    // void AskForPromotion() {
-
-    // }
+    void AskForPromotion() {
+        if(Age > 30)
+            cout << Name << " got promoted!" << endl;
+        else
+            cout << Name << ", sorry NO promotion for you!" << endl;
+    }
 };
 
 int main()

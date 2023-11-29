@@ -2,7 +2,7 @@
 using namespace std;
 
 class AbstracEmployee {
-    public: virtual void AskForPromotion()  = 0;
+    virtual void AskForPromotion() = 0;
 };
 
 class Employee: public AbstracEmployee {
@@ -13,7 +13,6 @@ private:
 protected:
     string Name;
 public:
-    // string Name;
     void setName(string name) { //setter
         Name = name;
     }
@@ -51,8 +50,10 @@ public:
         else
             cout << Name << ", sorry NO promotion for you!" << endl;
     }
+    void Work() {
+        cout << Name << " is checking email, task, backlog, performing tasks..." << endl;
+    }
 };
-// class Developer: Employee { // nếu trong main gọi AskFor.. or get, set thì sẽ error như giải thích ở dưới
 class Developer: public Employee {
 public:
     string FavProgrammingLanguage;
@@ -62,34 +63,38 @@ public:
         FavProgrammingLanguage = favProgrammingLanguage;
     }
     void FixBug() {
-        // cout<< getName() << " fixed bug using " << FavProgrammingLanguage << endl;
-        cout<< Name << " fixed bug using " << FavProgrammingLanguage << endl; //vì attributes 'Name' nằm trong protected vì subClass kế thừa từ superClass
+        cout<< Name << " fixed bug using " << FavProgrammingLanguage << endl;
+    }
+    void Work() {
+        cout << Name << " is writing " << FavProgrammingLanguage << " code" << endl;
+    }
+};
+
+class Teacher: public Employee {
+public:
+    string Subject;
+    void PrepareLesson() {
+        cout << Name << " is preparing " << Subject << " lesson" << endl;
+    }
+    Teacher(string name, string company, int age, string subject)
+        :Employee(name, company, age)
+    {
+        Subject = subject;
+    }
+    void Work() {
+        cout << Name << " is teaching " << Subject << " code" << endl;
     }
 
 };
 
-// class Teacher: public Employee { // nếu trong main gọi AskFor.. or get, set thì sẽ error như giải thích ở dưới
-class Teacher: public Employee {
-    public:
-        string Subject;
-        void PrepareLesson() {
-            cout << Name << " is preparing " << Subject << " lesson" << endl;
-        }
-        Teacher(string name, string company, int age, string subject)
-            :Employee(name, company, age)
-        {
-            Subject = subject;
-        }
-};
-
-int main()
-{
+int main() //The most common use of polymorphism is when a
+{          //parent class reference is used to refer to a child class object 
     Developer d = Developer("Ngoc", "TMA", 24, "C++");
-
-    d.FixBug();
-    d.AskForPromotion(); // error : do phương thức AskForPromotion trong AbstracEmployee được khai báo là private 
-                        //mặc định khi bạn không chỉ định mức độ truy cập nào cả
     Teacher t = Teacher("Bao", "VinSchool", 35, "History");
-    t.PrepareLesson();
-    t.AskForPromotion();
+
+    Employee* e1 = &d;
+    Employee* e2 = &t;
+
+    e1->Work();
+    e2->Work();
 }
