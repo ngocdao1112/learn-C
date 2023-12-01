@@ -50,7 +50,7 @@ public:
         else
             cout << Name << ", sorry NO promotion for you!" << endl;
     }
-    void Work() {
+    virtual void Work() { //nếu có 'virtual' thì method Work() of subClass sẽ ghi đè lên superClass
         cout << Name << " is checking email, task, backlog, performing tasks..." << endl;
     }
 };
@@ -92,9 +92,9 @@ int main() //The most common use of polymorphism is when a
     Developer d = Developer("Ngoc", "TMA", 24, "C++");
     Teacher t = Teacher("Bao", "VinSchool", 35, "History");
 
-    Employee* e1 = &d;
+    Employee* e1 = &d; //mặc dù e1 & e2 là pointer của class Employee
     Employee* e2 = &t;
 
-    e1->Work();
-    e2->Work();
+    e1->Work(); // do method Work() đc định nghĩa là virtual 
+    e2->Work(); //sử dụng tính đa hình để thực hiện method tương ứng của object real (Developer or Teacher).
 }

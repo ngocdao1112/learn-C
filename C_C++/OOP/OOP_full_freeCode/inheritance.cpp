@@ -2,10 +2,10 @@
 using namespace std;
 
 class AbstracEmployee {
-    public: virtual void AskForPromotion()  = 0;
+    virtual void AskForPromotion()  = 0;
 };
 
-class Employee: public AbstracEmployee {
+class Employee: AbstracEmployee {
 private:
     // string Name;
     string Company;
@@ -85,7 +85,6 @@ class Teacher: public Employee {
 int main()
 {
     Developer d = Developer("Ngoc", "TMA", 24, "C++");
-
     d.FixBug();
     d.AskForPromotion(); // error : do phương thức AskForPromotion trong AbstracEmployee được khai báo là private 
                         //mặc định khi bạn không chỉ định mức độ truy cập nào cả
