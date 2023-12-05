@@ -3,7 +3,7 @@ using namespace std;
 int main() 
 { 
  //1. ép kiểu rộng 
-    int a = 10; 
+    int a = 10;
     //kiểm tra kiểu dữ liệu của a
     cout << "kieu du lieu cua a: "<< typeid(a).name()<<endl; 
     //xuất giá trị a 
@@ -21,5 +21,5 @@ int main()
     float soA = 1.25;
     int soB = 1.25;
     cout << "SoA= " << soA << endl;
-    cout << "SoB= " << soB << endl;
+   //  cout << "SoB= " << soB << endl;
 } 

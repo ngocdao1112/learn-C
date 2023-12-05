@@ -1,6 +1,8 @@
 #include <iostream>
-#include <string>
+#include <string.h>
+#include <list>
 using namespace std;
+
 //struct: default là public
 //class: default là private
 struct YouTubeChannel {
@@ -11,6 +13,9 @@ struct YouTubeChannel {
         Name = name; // khởi tạo
         SubscribersCount = subscribersCount;
     }
+    bool operator == (const YouTubeChannel&channel) const {
+        return this->Name == channel.Name;
+    }
 };
 // void operator << (ostream& COUT, YouTubeChannel& ytChannel) {
 ostream& operator << (ostream& COUT, YouTubeChannel& ytChannel) { // hàm global và có 2 tham số
@@ -19,12 +24,17 @@ ostream& operator << (ostream& COUT, YouTubeChannel& ytChannel) { // hàm global
     return COUT;
 }
 struct MyCollection { // hàm thành viên và chỉ nhận 1 tham số sử dụng trong trường hợp bị quá tải
-    list<YouTubeChannel>MyChannel;
-    void operator += (YouTubeChannel& channel) {
-        this->myChannels.push_back(channel);
+    list<YouTubeChannel>myChannels;
+
+    void operator+=(YouTubeChannel& channel) {
+        this->myChannels.push_back(channel);    
     }
-}
-ostream& operator << (ostream& COUT, MyCollection& mycollection) {
+
+    void operator-=(YouTubeChannel& channel) {
+        this->myChannels.remove(channel);    
+    }
+};
+ostream& operator << (ostream& COUT, MyCollection& myCollection) {
     for(YouTubeChannel ytChannel : myCollection.myChannels)
         COUT << ytChannel << endl;
     return COUT;
@@ -43,10 +53,12 @@ int main() {
     //                             // Subscribers: 75000
 
     MyCollection myCollection;
-    mycollection += yt1;
-    mycollection += yt2;
+    myCollection += yt1;
+    myCollection += yt2;
+    myCollection -= yt2;
     cout << myCollection;
 
     cin.get();
 
 }
+
