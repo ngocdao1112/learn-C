@@ -2,9 +2,10 @@
 using namespace std;
 class AbstracEmployee {
     virtual void AskForPromotion() = 0;
-    // public: virtual void AskForPromotion() {
-    //         cout << " got promoted!" << endl;
-    // }
+// public: 
+//     virtual void AskForPromotion() {
+//             cout << " got ngoccccc!" << endl;
+//     }
 };
 class Employee: public AbstracEmployee {
 private: //encapsulation để bảo mật data
@@ -32,14 +33,12 @@ public:
         return Age;
     }
 
-    void IntroducYourself()
-    {
+    void IntroducYourself() {
         cout << "Name - " << Name << endl;
         cout << "Company - " << Company << endl;
         cout << "Age - " << Age << endl;
     }
-    Employee(string name, string
-     company, int age) {
+    Employee(string name, string company, int age) {
         Name = name;
         Company = company;
         Age = age;

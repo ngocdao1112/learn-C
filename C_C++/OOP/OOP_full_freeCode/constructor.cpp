@@ -1,15 +1,13 @@
 #include <iostream>
 using namespace std;
 
-class Employee
-{
-public:
+class Employee {
+private:
     string Name;
     string Company;
     int Age;
-    // Methods là hành vi của Object (nhưng nếu quá nhiều method thì phải create 1 METHOD để đại diện cho 1 hành vi)
-    void IntroducYourself()
-    {
+public:
+    void IntroducYourself() {
         cout << "Name - " << Name << endl;
         cout << "Company - " << Company << endl;
         cout << "Age - " << Age << endl;
@@ -31,6 +29,7 @@ int main()
     employee1.Company = "TMA";
     employee1.Age = 24; */
     employee1.IntroducYourself();
+    // employee1.Name(); // vì chưa có getter & setter nên sẽ cần encapsulation
 
     Employee employee2 = Employee("Trieu", "TMA", 23);
     employee2.IntroducYourself();

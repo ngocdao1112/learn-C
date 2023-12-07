@@ -2,8 +2,7 @@
 using namespace std;
 
 // Các attributes của class default là private
-class Employee
-{
+class Employee {
 public:
     string Name;
     string Company;

@@ -13,7 +13,7 @@ struct YouTubeChannel {
         Name = name; // khởi tạo
         SubscribersCount = subscribersCount;
     }
-    bool operator == (const YouTubeChannel&channel) const {
+    bool operator == (const YouTubeChannel& channel) {
         return this->Name == channel.Name;
     }
 };
@@ -23,6 +23,8 @@ ostream& operator << (ostream& COUT, YouTubeChannel& ytChannel) { // hàm global
     COUT << "Subscribers: " << ytChannel.SubscribersCount << endl;
     return COUT;
 }
+
+
 struct MyCollection { // hàm thành viên và chỉ nhận 1 tham số sử dụng trong trường hợp bị quá tải
     list<YouTubeChannel>myChannels;
 

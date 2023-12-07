@@ -15,8 +15,13 @@ main.o: main.cpp
 message.o: message.cpp message.h
 	g++ -c message.cpp
 
+hello: hello.c
+	gcc -c hello.c -o hello.exe
+
 clean:
-	del *.o output *.exe
+	del *.o hello *.exe
+
+
 
 # cấu trúc:
 # target: dependencies
@@ -24,3 +29,7 @@ clean:
 
 # >>> change thành .o bởi vì sau khi run lần 1 nó tạo 2 file .o nhưng sau đó chúng ta change file 'message.cpp' thì run lần 2 nó chỉ tạo
 # 1 file 'message.o', còn 'main.o' vẫn giữ nguyên vì chúng ta k change 'main.cpp', giúp ctrinh run nhanh hơn
+
+# D:\VSCode\C++_v2\C_C++\C++\MakeFile\makefile2> mingw32-make output
+# D:\VSCode\C++_v2\C_C++\C++\MakeFile\makefile2> mingw32-make clean 
+# .\output

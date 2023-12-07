@@ -2,7 +2,7 @@
 using namespace std;
 
 class AbstracEmployee {
-    virtual void AskForPromotion()  = 0;
+    virtual void AskForPromotion() = 0;
 };
 
 class Employee: AbstracEmployee {
@@ -52,13 +52,12 @@ public:
             cout << Name << ", sorry NO promotion for you!" << endl;
     }
 };
-// class Developer: Employee { // nếu trong main gọi AskFor.. or get, set thì sẽ error như giải thích ở dưới
+// class Developer: Employee {
 class Developer: public Employee {
 public:
     string FavProgrammingLanguage;
     Developer(string name, string company, int age, string favProgrammingLanguage)
-        :Employee{name, company, age}
-    {
+        :Employee{name, company, age} {
         FavProgrammingLanguage = favProgrammingLanguage;
     }
     void FixBug() {
