@@ -216,5 +216,160 @@ dem = 1;
         printf("%d ", dem);
     }
 ===============================================
+Printing Pattern Using Loops:
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+//cách 1:
+int main() {
+    int n;
+    scanf("%d", &n);
+
+    int length = 2*n - 1;
+    int a[length][length];
+    int temp = n;
+
+    // Complete the code to print the pattern.
+    while (temp) {
+        for (int i = length; i >= (2*n-length); i--)
+        {
+            for (int j = length; j >= (2*n-length); j--)
+            {
+                a[i - 1][j - 1] = temp;
+            }
+        }
+        temp--; //2
+        length--; //4
+    }
+
+    for (int i = 0; i < (2*n-1); i++)
+    {
+        for (int j = 0; j < (2*n-1); j++)
+        {
+            printf("%d ", a[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+===============================================
+int marks_summation(int* marks, int number_of_students, char gender) {
+    //Write your code here.
+    int SUM = 0;
+    for(int i = (gender == 'b' ? 0 : 1); i < number_of_students; i += 2) {
+        SUM += marks[i]; //sum += *(marks + i);
+    }
+    return SUM;
+}
+===============================================
+Boxes through a Tunnel:
+struct box
+{// Define three fields of type int: length, width and height
+	int length, width, height;
+};
+typedef struct box box;
+
+int get_volume(box b) {
+	//Return the volume of the box
+    return b.width*b.height*b.length;
+
+}
+
+int is_lower_than_max_height(box b) {
+	//Return 1 if the box's height is lower than MAX_HEIGHT and 0 otherwise
+	return b.height < MAX_HEIGHT;
+}
+===============================================
+Small Triangles, Large Triangles:
+                    3
+                    7 24 25
+                    5 12 13
+                    3 4 5
+
+                    arr[n] = arr[3] ; 0  1  2
+                    ======================
+                    - for 1:
+                        i=0; i<n = 0<3 		>> true
+                            p=tr[0].a + tr[0].b + tr[0].c / 2 = 28
+                        arr[0] = 84
+                        
+                    - for 2:
+                        i=1; i<n = 1<3 		>> true
+                            p=tr[1].a + tr[1].b + tr[1].c / 2 = 15
+                        arr[1] = 30
+                        
+                    - for 3:
+                        i=2; i<n = 2<3 		>> true
+                            p=tr[2].a + tr[2].b + tr[2].c / 2 = 6
+                        arr[2] = 6
+                    =======================
+                    - for 2:
+                        i=0; i<n = 0<3 		>> true
+                            j=1; j<n = 1<3 		>> true
+                                - arr[i] > arr[j] = 84 > 30
+                                temp = arr[j] = arr[1] = 30
+                                arr[j]= arr[i] = arr[0] = 84 	=> arr[j] = 84
+                                arr[i] = temp = 30 				=> arr[i] = 30
+                                
+                                temp1 = tr[j] = tr[1] = (5 12 13)
+                                tr[j] = tr[i] = tr[0] = (7 24 25) 	=> tr[j] = (7 24 25)
+                                tr[i] = temp1 = (5 12 13) 			=> tr[i] = (5 12 13)
+                                
+                    => 84 (7 24 25) tr[j]
+                    30 (5 12 13) tr[i]
+                    =======
+                        i=1; i<n = 1<3 		>> true
+                            j=2; j<n = 2<3 		>> true
+                                - arr[i] > arr[j] =  arr[1] > arr[2] = 30 > 6
+                                temp = arr[j] = arr[2] = 6 
+                                arr[j]= arr[i] = arr[1] = 30 	=> arr[j]= 30
+                                arr[i] = temp = 6 				=> arr[i] = 6
+                                
+                                temp1 = tr[j] = tr[2] = (3 4 5)
+                                tr[j] = tr[i] = tr[1] = (5 12 13)	=> tr[j] = (5 12 13)
+                                tr[i] = temp1 = (3 4 5)				=> tr[i] = (3 4 5)
+                                
+                    => 30 (5 12 13) tr[j]
+                    6 (3 4 5) tr[i]
+                    =======
+                        i=2; i<n = 2<3 		>> false
+                        
+                    => 84 (7 24 25) tr[j]
+                    30 (5 12 13) tr[i]
+                    => 30 (5 12 13) tr[j]
+                    6 (3 4 5) tr[i]
+
+                        6 (3 4 5) tr[i]
+                        30 (5 12 13) tr[j]
+                        84 (7 24 25) tr[j]
+    typedef struct triangle triangle;
+    void sort_by_area(triangle* tr, int n) {
+        //Sort an array a of the length n
+        double arr[n], temp;
+        double p;
+        triangle temp1;
+
+        for (int i=0; i<n; i++) {
+            p = (tr[i].a + tr[i].b + tr[i].c) / 2.0;
+            arr[i] = sqrt(p * (p - tr[i].a) * (p - tr[i].b) * (p- tr[i].c));
+        }
+
+        for (int i =0; i<n; i++) {
+            for (int j = i+1; j<n; j++) {
+                if (arr[i] > arr[j]) {
+                    temp = arr[j];
+                    arr[j]= arr[i];
+                    arr[i] = temp;
+                    
+                    temp1 = tr[j];
+                    tr[j] = tr[i];
+                    tr[i] = temp1;
+                }
+            }
+        }
+    }
+===============================================
 
 */

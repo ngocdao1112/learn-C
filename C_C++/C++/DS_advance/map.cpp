@@ -29,7 +29,7 @@ int main() {
 
     for(auto pair:pokedex) {
         cout << pair.first << " - ";
-        for(auto attack:pair.second)
+        for(auto attack : pair.second)
             cout << attack << ", ";
 
         cout << endl;
