@@ -6,15 +6,15 @@ using namespace std;
 
 */
 class YouTubeChannel { // định nghĩa class YouTubeChannel
-    private:
-        //thuộc tính (attribute)
-        string Name;
-        string OwerName;
-        int SubscribersCount;
-        list<string> PublishedVideoTitles;
-    public:
+private:
+    //thuộc tính (attribute)
+    string Name;
+    string OwerName;
+    int SubscribersCount;
+    list<string> PublishedVideoTitles;
+public:
     //2. Constructor cho class YouTubeChannel
-        //truyền 2 tham số và truyền 2 đối số cho constructor
+    //truyền 2 tham số và truyền 2 đối số cho constructor
     YouTubeChannel(string name, string OwerName) { 
         //gán các giá trị ban đầu cho các attribute
         Name = name;
