@@ -1,10 +1,8 @@
 #include <iostream>
 using namespace std;
-
 /*
     - Con trỏ tương tác với mảng 1 chiều: con trỏ và mảng có mối quan hệ gần, mảng cũng quản lý theo địa chỉ ô nhớ
     - Có thể gán trực tiếp con trỏ vào mảng mà không cần dùng toán tử '&'
-
 */
 
 int main() {
@@ -14,11 +12,12 @@ int main() {
     //khai bao con tro
     int *conTroM;
     //gán con trỏ vào mảng (không cần &)
-    conTroM = mang;
+    conTroM = mang; // &mang[0]
+                    // &mang, đó sẽ là địa chỉ của toàn bộ mảng
 
     //duyệt mảng nhưng qua con trỏ
     cout << "Mảng trước khi đổi: ";
-    for(int i=0; i<size(mang); i++) {
+    for(int i=0; i < size(mang); i++) {
         //lấy giá trị nằm trên ô nhớ mà conTroM thứ i quản lý
         cout << *(conTroM + i) << " ";
         //lấy địa chỉ ô nhớ mà conTroM thứ i quản lý

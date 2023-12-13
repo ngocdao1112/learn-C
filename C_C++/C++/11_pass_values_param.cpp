@@ -28,7 +28,7 @@ void thamTri(int a) {
 }
 void thamChieu(int &a) {
     a = 100; //a ban goc
-    cout << "a trong ham tham Chieu la: " << a << endl;
+    cout << "a trong ham tham Chieu la: " << a << endl; //100
     cout << "a co dia chi: " << &a << endl; // 0x5ffe9c
 
 }

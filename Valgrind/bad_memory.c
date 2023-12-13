@@ -19,7 +19,7 @@ void test2() {
         printf("%d: %lld\n", i, weights[i]);
     }
     free(weights);
-    weights[0] = 0;
+    // weights[0] = 0;
 }
 
 void test3() {
@@ -49,6 +49,8 @@ int main(int argc, char *args[]) {
     test3();
     test4();
 
+    system("pause > 0");
     return 0;
+
 
 }

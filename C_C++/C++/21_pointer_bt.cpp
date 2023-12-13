@@ -2,12 +2,12 @@
 #include <random>
 using namespace std;
 
-/*  //1.
+/*//1.
     1. Viết hàm (function) hoán vị 2 biến a, b là số thực bằng cách sử dụng con trỏ
     2. viết ctrinh nhập 2 số thực a, b. Sử dụng hàm trên để đổi chỗ a, b
 */
 
-/*    //hàm hoán đổi 2 biến a, b nhưng sử dụng con trỏ
+/*  //hàm hoán đổi 2 biến a, b nhưng sử dụng con trỏ
     void hoanDoi(double *a, double *b) {
         double temp = *a; //biến tạm = giá trị của a
         *a = *b; //gán giá trị a = giá trị nằm trên ô nhớ b
@@ -30,21 +30,20 @@ using namespace std;
 /*
     //2.
     1. Viết ctrinh nhập vào mảng 1 chiều M, gồm n phần tử nguyên ngẫu nhiên [0, 100]
-    2. Sắp xếp mảnh M theo chiều giảm dần.
+    2. Sắp xếp mảng M theo chiều giảm dần.
     Note: Yêu cầu sử dụng tên mảng như con trỏ và sử dụng con trỏ
 */
     void Nhap(int *&M, int n);
     void Xuat(int *&M, int n);
     void hoanDoi(int *&M, int n);
     void sapXep(int *&M, int n);
-    void hoanDoi_v1(int,int);
-    void hoanDoi_v2(int*,int*);
+    void hoanDoi_v1(int, int);
+    void hoanDoi_v2(int*, int*);
 
     int main() {
-        // //khai báo con trỏ
         int *M;
         int n = 10;
-        // //gọi hàm nhập mảng
+        //gọi hàm nhập mảng
         Nhap(M, n);
         cout << "Mảng ngẫu nhiên vừa tạo ra là: \n";
         // Xuat(M, n);
@@ -57,8 +56,8 @@ using namespace std;
         int a = 1;
         int b = 2;
         hoanDoi_v2(&a, &b);
-        cout<<"a : "<<a;
-        cout<<"b : "<<b;
+        cout << "a : " << a << '\t';
+        cout << "b : " << b;
 
     }
 
