@@ -461,7 +461,7 @@ int add(int a, int b) { //0fxx
 int main() {
     int result;
     int (*ptr)(int, int) = &add;
-    result = *ptr(10, 20);
+    result = (*ptr)(10, 20);
     
     printf("%d", result);
 }

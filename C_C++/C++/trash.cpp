@@ -2,25 +2,55 @@
 #include <random>
 using namespace std;
 
-int main() {
-    // int a[] = {34, 56, 54, 32, 67, 89, 90, 32, 21};
-    // //Original order
-    // for (int i=0; i<9; i++) {
-    //     printf("%d ", a[i]);
-    // }
-    // printf("\n");
-    // //reverse order
-    // for (int i=8; i>=0; i--) {
-    //     printf("%d ", a[i]);
-    // }
-    // return 0;
 
-    int ptr[] = {1,2,3,4,5};
-    for(int i=0; i<=5; i++) {
-        cout << ptr[i] << '\t';
-    }
-    cout << endl;
-    for(int i=5; i>=0; i--) {
-        cout << ptr[i] << '\t';
-    }
+//VD1
+    // int add(int a, int b) { //0fxx
+    //     return a+b;
+    // }
+    // int main() {
+    //     int result;
+    //     int (*ptr)(int, int) = &add;
+    //     result = (*ptr)(10, 20);
+        
+    //     printf("%d", result);
+    // }
+//VD2
+    float sum(float a, float b) {return a+b;}
+    float sub(float a, float b) {return a-b;}
+    float mult(float a, float b) {return a*b;}
+    float divi(float a, float b) {return a/b;}
+    // //traditional
+    // int main() {
+    //     int choice;
+    //     float a, b, result;
+    //     printf("Enter your choice: 0 for sum, 1 for sub, 2 for mult, 3 for div:\n");
+    //     scanf("%d", &choice);
+    //     printf("Enter two numbers:\n");
+    //     scanf("%f %f", &a, &b);
+    //     switch(choice) {
+    //         case 0: 
+    //             result = sum(a, b); break;
+    //         case 1: 
+    //             result = sub(a, b); break;
+    //         case 2: 
+    //             result = mult(a, b); break;
+    //         case 3: 
+    //             result = divi(a, b); break;
+    //     }
+    //     printf("%f", result);
+    //     result 0;
+    // }
+//new program
+#define ops 4
+int main() { //*p[4](float, float)
+    float (*ptr2func[ops])(float, float) = {sum, sub, mult, divi}; //mảng chứa con trỏ hàm
+    int choice;
+    float a, b;
+    printf("Enter your choice: 0 for sum, 1 for sub, 2 for mult, 3 for div:\n");
+    scanf("%d", &choice);
+    printf("Enter two numbers:\n");
+    scanf("%f %f", &a, &b);
+    printf("%f", ptr2func[choice](a, b));
+    
+    return 0;
 }

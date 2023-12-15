@@ -57,6 +57,7 @@ int main() {
     for (int i=0; i<size(mangConTro); i++) {
         cout << mangConTro[i] << endl;
     }
+    
 
 
     
