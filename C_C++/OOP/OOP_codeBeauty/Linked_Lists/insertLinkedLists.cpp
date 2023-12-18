@@ -70,10 +70,13 @@ int main() {
     second -> Next = third;
     third -> Value = 3;
     third -> Next = NULL;
+    //insert a node after a given node
+    insertAfter(head, -1);
+    insertAfter(second, -2);
 
     //insert a node at the end of a linked list
-    insertAtTheEnd(&head, 4);
-    insertAtTheEnd(&head, 5);
+    // insertAtTheEnd(&head, 4);
+    // insertAtTheEnd(&head, 5);
 
     //insert a node at the front of a linked list
     // insertAtTheFront(&head, -1);
