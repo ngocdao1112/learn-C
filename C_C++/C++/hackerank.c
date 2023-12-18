@@ -371,5 +371,23 @@ Small Triangles, Large Triangles:
         }
     }
 ===============================================
+reverse:
+    int size;
+    cin >> size;
+    int arr[size];
 
+    for(int i=1; i<=size; i++) {
+        cin >> arr[i];
+    }
+    // reverse(dyArr, dyArr + size);
+    for(int j=size; j>0; j--) {
+        cout << arr[j] << ' ';
+    }
+===============================================
+
+    string num[10] = {"Greater than 9", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+    if(n > 9)
+        cout << num[0];
+    else
+        cout << num[n];
 */
