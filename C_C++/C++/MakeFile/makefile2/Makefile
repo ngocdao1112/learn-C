@@ -19,7 +19,7 @@ hello: hello.c
 	gcc -c hello.c -o hello.exe
 
 clean:
-	del *.o hello *.exe
+	del *.o *.exe
 
 
 

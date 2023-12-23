@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void main() {
+int main() {
     // Initialize winsock / để khởi tạo môi trường
     WSADATA wsData;
     WORD ver = MAKEWORD(2, 2);
@@ -15,7 +15,7 @@ void main() {
     int wsOk = WSAStartup(ver, &wsData); //Thông tin về phiên bản và khởi tạo sẽ được lưu trữ trong biến 'wsData'
     if(wsOk != 0) {
         cerr << "Can't initialize winsock! Quitting" << endl;
-        return;
+        return 0;
     }
     // Create a socket /  sử dụng hàm socket() để tạo một socket.
     SOCKET listening = socket(AF_INET, SOCK_STREAM, 0); // AF_INET - IPv4,
