@@ -1,7 +1,7 @@
 #include <iostream>
 #include <winsock2.h>
 #include <Ws2tcpip.h>
-
+//https://www.youtube.com/watch?v=JHK4QZ0PtOw&list=PLZo2FfoMkJeEogzRXEJeTb3xpA2RAzwCZ
 #pragma comment (lib, "ws2_32.lib")
 // #pragma comment(lib, "ws2_32")
 
