@@ -1,5 +1,6 @@
 /*
 - static bên ngoài 1 class or struct
+    + 
 - static bên trong 1 class or struct
 */
 
