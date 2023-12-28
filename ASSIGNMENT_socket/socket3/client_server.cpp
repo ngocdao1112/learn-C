@@ -71,7 +71,7 @@ Transmitting Objects:
         Data data;
         byteCount = recv(clientSocket, (char*)&data, sizeof(Data), 0);
         printf("Health: \"%d\"\n", data.health);
-Asigning Values to char array
+        Asigning Values to char array
     - When defining the char array we can initialise its value
         char sendBuffer[200] = "Message received by server";
     - We can't however use the assignment operator after it has been defined.
