@@ -1,7 +1,11 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+<<<<<<< Updated upstream
 // Example of what not to do with dynamic memory!
+=======
+// https://www.youtube.com/watch?v=bb1bTJtgXrI&list=PLGvfHSgImk4ZZq5KWX0mGT0kgwy9-I-Qe
+>>>>>>> Stashed changes
 void test1() {
     const int NUM_HEIGHTS = 3;
     // int *heights = malloc(NUM_HEIGHTS);

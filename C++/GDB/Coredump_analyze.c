@@ -12,7 +12,7 @@ viên hiểu và sửa lỗi một cách hiệu quả.
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <unistd.h>
+// #include <unistd.h>
 #include <time.h>
 
 int main() {
