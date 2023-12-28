@@ -1,11 +1,38 @@
+/*
+- Gỡ lỗi lỗi bộ nhớ
+- Kiểm tra hiệu suất: mã chậm
+- Phân tích lỗi logic: sử dụng giá trị không khởi tạo
+
+#include <iostream>
+
+void memoryLeak() {
+    int* dynamicArray = new int[5];
+    // Forgot to delete dynamicArray, causing a memory leak
+    // delete[] dynamicArray; // Uncomment this line to fix the memory leak
+}
+
+void useAfterFree() {
+    int* dynamicNumber = new int;
+    *dynamicNumber = 42;
+    delete dynamicNumber;
+    // Accessing dynamicNumber after it has been deleted
+    std::cout << "Value: " << *dynamicNumber << std::endl; // Causes use-after-free error
+}
+
+int main() {
+    memoryLeak();
+    useAfterFree();
+
+    return 0;
+}
+
+*/
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-<<<<<<< Updated upstream
 // Example of what not to do with dynamic memory!
-=======
 // https://www.youtube.com/watch?v=bb1bTJtgXrI&list=PLGvfHSgImk4ZZq5KWX0mGT0kgwy9-I-Qe
->>>>>>> Stashed changes
 void test1() {
     const int NUM_HEIGHTS = 3;
     // int *heights = malloc(NUM_HEIGHTS);
