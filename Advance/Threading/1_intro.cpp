@@ -16,7 +16,7 @@ For example:
 4. Member Functions
 5. Static Member functions
 - REQUIREMENT
-Find the addition of all odd number from 1 to 1900000008 and all even number from 1 to 1900000000
+Find the addition of all odd number from 1 to 1900000000 and all even number from 1 to 1900000000
 */
 
 #include <iostream>
